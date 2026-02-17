@@ -1,0 +1,14 @@
+# Flight Data Producer Dependencies
+
+# Kafka client
+kafka-python==2.0.2
+
+# HTTP requests for OpenSky API
+requests==2.31.0
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# Testing (used by tests/test_producer.py)
+pytest==8.0.0
+pytest-mock==3.12.0
