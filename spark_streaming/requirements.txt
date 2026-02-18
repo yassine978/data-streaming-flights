@@ -1,0 +1,5 @@
+# Spark Streaming Dependencies (Member 2 - Task 2.1)
+
+pyspark==3.5.0
+kafka-python==2.0.2
+python-dotenv==1.0.0

@@ -45,6 +45,34 @@ services:
       timeout: 10s
       retries: 5
 
+  spark:
+    image: apache/spark:3.5.0-python3
+    container_name: spark_flights
+    depends_on:
+      - kafka
+    user: root
+    environment:
+      SPARK_HOME: /opt/spark
+      KAFKA_BOOTSTRAP_SERVERS: kafka_flights:29092
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "4040:4040"
+    volumes:
+      - ../spark_streaming:/opt/spark-apps
+      - ../models:/opt/spark-models
+      - ../data:/opt/spark-data
+    working_dir: /opt/spark
+    networks:
+      - flight-network
+    command: >
+      bash -c "
+        pip install python-dotenv kafka-python &&
+        /opt/spark/sbin/start-master.sh -h spark_flights &&
+        /opt/spark/sbin/start-worker.sh spark://spark_flights:7077 &&
+        tail -f /opt/spark/logs/*
+      "
+
 networks:
   flight-network:
     driver: bridge
