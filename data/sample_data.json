@@ -1,0 +1,51 @@
+{
+  "description": "Sample OpenSky API response for testing and documentation",
+  "time": 1739700000,
+  "states": [
+    ["3c675a", "DLH123 ", "Germany", 1739700000, 1739700000,
+     13.405, 52.52, 11200.0, false, 245.3, 270.0, -2.5,
+     null, 11100.0, "1000", false, 0],
+    ["406287", "BAW456 ", "United Kingdom", 1739700000, 1739700000,
+     -0.461, 51.477, 9800.0, false, 210.5, 90.0, 0.0,
+     null, 9700.0, "2000", false, 0],
+    ["4ca87d", "RYR789 ", "Ireland", 1739700000, 1739700000,
+     2.349, 48.864, 10500.0, false, 230.0, 180.0, 1.5,
+     null, 10400.0, "3000", false, 0]
+  ],
+  "field_mapping": {
+    "0": "icao24 (string, unique aircraft ID)",
+    "1": "callsign (string, flight number)",
+    "2": "origin_country (string)",
+    "3": "time_position (int, unix timestamp)",
+    "4": "last_contact (int, unix timestamp)",
+    "5": "longitude (float)",
+    "6": "latitude (float)",
+    "7": "baro_altitude (float, meters)",
+    "8": "on_ground (bool)",
+    "9": "velocity (float, m/s)",
+    "10": "true_track (float, heading in degrees)",
+    "11": "vertical_rate (float, m/s)",
+    "12": "sensors (array, can be null)",
+    "13": "geo_altitude (float, meters)",
+    "14": "squawk (string)",
+    "15": "spi (bool)",
+    "16": "position_source (int: 0=ADS-B, 1=ASTERIX, 2=MLAT)"
+  },
+  "kafka_message_schema": {
+    "icao24": "3c675a",
+    "callsign": "DLH123",
+    "origin_country": "Germany",
+    "time_position": 1739700000,
+    "longitude": 13.405,
+    "latitude": 52.52,
+    "baro_altitude": 11200.0,
+    "on_ground": false,
+    "velocity": 245.3,
+    "heading": 270.0,
+    "vertical_rate": -2.5,
+    "geo_altitude": 11100.0,
+    "position_source": 0,
+    "ingestion_timestamp": "2025-02-16T10:30:05Z",
+    "data_valid": true
+  }
+}
