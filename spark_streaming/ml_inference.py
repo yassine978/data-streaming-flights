@@ -21,13 +21,9 @@ logger = logging.getLogger(__name__)
 # Model Loading
 # ═══════════════════════════════════════════════════════════════════════════
 
-_BASE   = os.path.dirname(os.path.abspath(__file__))
-_PARENT = os.path.dirname(_BASE)
-
-MODEL_PATH    = os.path.join(_PARENT, "models", "flight_anomaly_detector.pkl")
-SCALER_PATH   = os.path.join(_PARENT, "models", "flight_scaler.pkl")
-FEATURES_PATH = os.path.join(_PARENT, "models", "flight_features.json")
-
+MODEL_PATH    = "/opt/spark-apps/models/flight_anomaly_detector.pkl"
+SCALER_PATH   = "/opt/spark-apps/models/flight_scaler.pkl"
+FEATURES_PATH = "/opt/spark-apps/models/flight_features.json"
 
 class ModelLoader:
     """Singleton model loader."""
