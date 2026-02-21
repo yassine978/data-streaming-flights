@@ -1,5 +1,45 @@
-# Spark Streaming Dependencies (Member 2 - Task 2.1)
-
+# Core Spark
 pyspark==3.5.0
+
+# Kafka client
 kafka-python==2.0.2
+
+# ML 
+scikit-learn==1.4.0
+pandas==2.2.0
+numpy==1.26.3
+joblib==1.3.2
+
+# Arrow
+pyarrow==15.0.0
+
+# Kafka dependency
+six==1.16.0
+
+# Config
 python-dotenv==1.0.0
+
+# Testing
+pytest==8.0.0# Core Spark
+pyspark==3.5.0
+
+# Kafka client
+kafka-python==2.0.2
+
+# ML 
+scikit-learn==1.4.0
+pandas==2.2.0
+numpy==1.26.3
+joblib==1.3.2
+
+# Arrow
+pyarrow==15.0.0
+
+# Kafka dependency
+six==1.16.0
+
+# Config
+python-dotenv==1.0.0
+
+# Testing
+pytest==8.0.0
