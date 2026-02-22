@@ -673,14 +673,14 @@ docker exec kafka_flights kafka-topics --bootstrap-server kafka_flights:29092 --
 
 ## Team Roles & Responsibilities
 
-### Member 1: Data Producer (Apache Kafka Producer)
+### Yassine: Data Producer (Apache Kafka Producer)
 - OpenSky API integration and authentication
 - Real-time flight data ingestion
 - Data validation and enrichment
 - Kafka topic publishing
 - Continuous operation and monitoring
 
-### Member 2: Stream Processing & ML (Apache Spark)
+### Ramy: Stream Processing & ML (Apache Spark)
 - Spark Structured Streaming implementation
 - Feature engineering and transformations
 - ML model integration and inference
@@ -688,7 +688,7 @@ docker exec kafka_flights kafka-topics --bootstrap-server kafka_flights:29092 --
 - Docker containerization and DevOps
 - Schema design and validation
 
-### Member 3: Visualization & Analytics (Streamlit Dashboard)
+### Chiheb: Visualization & Analytics (Streamlit Dashboard)
 - Interactive dashboard development
 - 12+ visualization implementations
 - Real-time metrics and KPIs
@@ -747,32 +747,8 @@ docker exec kafka_flights kafka-topics --bootstrap-server kafka_flights:29092 --
 - pandas: https://pandas.pydata.org/docs/
 - scikit-learn: https://scikit-learn.org/stable/
 
-## Support & Questions
 
-For issues or questions:
-1. Check Comprehensive_README.md (this file)
-2. Review member-specific README files
-3. Check logs in Docker containers
-4. Review troubleshooting section above
-5. Contact team members for specific component questions
 
-## Project Metadata
-
-**Project Name**: M2 BDIA Data Streaming - Real-Time Flight Tracking System
-
-**Duration**: 6 weeks
-
-**Team Size**: 3 members
-
-**Status**: Production Ready
-
-**Version**: 1.0
-
-**Last Updated**: February 22, 2026
-
-**Repository**: [GitHub URL]
-
-**License**: [Project License]
 
 ---
 
