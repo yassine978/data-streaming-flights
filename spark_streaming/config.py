@@ -10,10 +10,13 @@ except ImportError:
 
 class SparkConfig:
 
-    # Kafka Configuration (LOCAL MACHINE)
+    # Auto-detect if running in Docker
+    _in_docker = os.path.exists('/.dockerenv')
+
+    # Kafka Configuration - use Docker network address if in container
     KAFKA_BOOTSTRAP_SERVERS = os.getenv(
         'KAFKA_BOOTSTRAP_SERVERS',
-        'localhost:9092'   # ⚠ change from kafka_flights
+        'kafka_flights:29092' if _in_docker else 'localhost:9092'
     )
 
     KAFKA_TOPIC_INPUT       = os.getenv('KAFKA_TOPIC_INPUT',       'flight-raw-data')
@@ -30,11 +33,11 @@ class SparkConfig:
 
     LOG_LEVEL = os.getenv('SPARK_LOG_LEVEL', 'WARN')
 
-    # Checkpointing
-    CHECKPOINT_LOCATION = os.getenv(
-        'CHECKPOINT_LOCATION',
-        './checkpoints'
-    )
+    # Checkpointing - use Docker path if in container
+    if _in_docker:
+        CHECKPOINT_LOCATION = os.getenv('CHECKPOINT_LOCATION', '/opt/checkpoints')
+    else:
+        CHECKPOINT_LOCATION = os.getenv('CHECKPOINT_LOCATION', './checkpoints')
 
     CHECKPOINT_PROCESSED  = os.path.join(CHECKPOINT_LOCATION, "processed")
     CHECKPOINT_AGGREGATED = os.path.join(CHECKPOINT_LOCATION, "aggregated")

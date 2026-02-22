@@ -205,3 +205,97 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+# Project-specific: Data Streaming Flights
+
+# Spark and Hadoop
+.ivy2/
+.m2/
+*.jar
+checkpoints/
+checkpoint/
+spark-warehouse/
+derby.log
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# Kafka and Docker
+kafka-logs/
+zookeeper-logs/
+docker/volumes/
+docker/data/
+
+# ML Models (store only in clean repository)
+models/*.pkl
+models/*.pickle
+models/scaler*.pkl
+
+# Local Kafka/Zookeeper data
+data/kafka/
+data/zookeeper/
+
+# OpenSky API credentials
+.opensky_credentials
+opensky_config.local
+
+# Large data files
+*.parquet
+data/raw/
+data/processed/
+
+# Logs
+logs/
+*.log
+spark-logs/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+
+# IDE and Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python virtual environments project-specific
+venv-streaming/
+env-streaming/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Windows specific
+*.exe
+*.dll
+*.lnk
+Thumbs.db
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Compiled Python files (redundant but explicit)
+*.pyc
+__pycache__/
+*.pyo
+
+# Test outputs
+test-results/
+coverage-report/
+
+# Maven/Gradle (if used)
+target/
+build/
+out/

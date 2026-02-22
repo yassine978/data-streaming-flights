@@ -49,7 +49,8 @@ services:
     image: apache/spark:3.5.0-python3
     container_name: spark_flights
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     user: root
     environment:
       SPARK_HOME: /opt/spark
@@ -60,18 +61,13 @@ services:
       - "4040:4040"
     volumes:
       - ../spark_streaming:/opt/spark-apps
-      - ../models:/opt/spark-models
-      - ../data:/opt/spark-data
-    working_dir: /opt/spark
+      - ../models:/opt/models
+      - ../data:/opt/data
+      - ./checkpoints:/opt/checkpoints
+    working_dir: /opt/spark-apps
     networks:
       - flight-network
-    command: >
-      bash -c "
-        pip install python-dotenv kafka-python &&
-        /opt/spark/sbin/start-master.sh -h spark_flights &&
-        /opt/spark/sbin/start-worker.sh spark://spark_flights:7077 &&
-        tail -f /opt/spark/logs/*
-      "
+    command: bash -c "pip3 install python-dotenv kafka-python scikit-learn==1.3.2 pandas pyarrow && /opt/spark/bin/spark-submit --master local[*] --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 stream_processor.py"
 
 networks:
   flight-network:
