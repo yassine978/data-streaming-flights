@@ -21,9 +21,20 @@ logger = logging.getLogger(__name__)
 # Model Loading
 # ═══════════════════════════════════════════════════════════════════════════
 
-MODEL_PATH    = "/opt/spark-apps/models/flight_anomaly_detector.pkl"
-SCALER_PATH   = "/opt/spark-apps/models/flight_scaler.pkl"
-FEATURES_PATH = "/opt/spark-apps/models/flight_features.json"
+# Auto-detect if running in Docker
+_in_docker = os.path.exists('/.dockerenv')
+
+if _in_docker:
+    # Docker paths (volume mounted)
+    MODEL_PATH    = "/opt/models/flight_anomaly_detector.pkl"
+    SCALER_PATH   = "/opt/models/flight_scaler.pkl"
+    FEATURES_PATH = "/opt/models/flight_features.json"
+else:
+    # Local paths (relative to module location)
+    _parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    MODEL_PATH    = os.path.join(_parent, "models", "flight_anomaly_detector.pkl")
+    SCALER_PATH   = os.path.join(_parent, "models", "flight_scaler.pkl")
+    FEATURES_PATH = os.path.join(_parent, "models", "flight_features.json")
 
 class ModelLoader:
     """Singleton model loader."""
