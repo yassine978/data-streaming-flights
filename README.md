@@ -7,8 +7,9 @@ This project implements a complete end-to-end real-time data streaming pipeline 
 **Status**: Production Ready
 
 **Project Duration**: 6 weeks
-
 **Team**: 3 members (Producer, Spark Streaming, Dashboard)
+**Demo video**: [Watch the demo](https://raw.githubusercontent.com/yassine978/data-streaming-flights/main/demo.mp4)
+
 
 ## System Architecture
 
